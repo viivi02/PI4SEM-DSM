@@ -1,0 +1,202 @@
+/* Cabeçalho */
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #264653;
+  color: white;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.navbar .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .menu > li {
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.navbar .menu > li:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li {
+  padding: 10px;
+  text-align: left;
+}
+
+.dropdown-content li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-content li:hover {
+  background-color: #ddd;
+}
+
+
+/* Corpo aplicação */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f0f4f8;
+  width: 100%;
+  color: #222;
+}
+
+.app-container {
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2a9d8f;
+}
+
+header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.grid-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  background: white;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 200px;
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.data {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #264653;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status.good {
+  color: #2a9d8f;
+}
+
+.status.medium {
+  color: #e9c46a;
+}
+
+.status.warning {
+  color: #f4a261;
+}
+
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex: 1 1 450px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chart-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 2rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .card {
+    margin-top: 2rem;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .chart-card {
+    max-width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .data {
+    font-size: 1.5rem;
+  }
+}
