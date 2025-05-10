@@ -25,30 +25,42 @@ function App() {
   return (
     <div className="app-container">
       <div className="header">
-  <div className="logo">
-    <h1>AirSense Dashboard</h1>
-    <p>Monitoramento ambiental em tempo real</p>
-  </div>
-  <nav className="navbar">
-    <ul className="menu">
-      <li>
-        Dashboard
-        <ul className="dropdown-content">
-          <li><a href="#">Temperatura</a></li>
-          <li><a href="#">Umidade</a></li>
-          <li><a href="#">Qualidade do Ar</a></li>
-        </ul>
-      </li>
-      <li>
-        Relatórios
-        <ul className="dropdown-content">
-          <li><a href="#">Semana</a></li>
-          <li><a href="#">Mês</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</div>
+        <div className="logo">
+          <img width="80" loading="lazy" alt="" src="Airsenseicon.png" class="nav_brand_main-logo-bg"></img>
+        </div>
+        <nav className="navbar">
+          <button className="menu-toggle" onClick={() => {
+            document.querySelector('.menu').classList.toggle('active');
+          }}>
+            ☰
+          </button>
+          <ul className="menu">
+            <li>
+              Dashboard ⮛
+              <ul className="dropdown-content">
+                <li><a href="#">Temperatura</a></li>
+                <li><a href="#">Umidade</a></li>
+                <li><a href="#">Qualidade do Ar</a></li>
+              </ul>
+            </li>
+            <li>
+              Relatórios ⮛
+              <ul className="dropdown-content">
+                <li><a href="#">Semana</a></li>
+                <li><a href="#">Mês</a></li>
+              </ul>
+            </li>
+            <li>
+              Desenvolvedores ⮛
+              <ul className="dropdown-content">
+                <li><a href="https://www.linkedin.com/in/ramon-franco-155350227/">Ramon Franco</a></li>
+                <li><a href="https://www.linkedin.com/in/patrícia-nogueira-dias-736146112/">Patrícia Nogueira</a></li>
+                <li><a href="https://www.linkedin.com/in/vini-lemes/">Vinicius Lemes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       <div className="charts-section">
         <div className="chart-card" id="temperatura">
@@ -80,19 +92,19 @@ function App() {
       </div>
 
       <div className="grid-cards">
-        <section className="card" id="temperatura">
+        <section className="card" id="card-temperatura">
           <h2>Temperatura</h2>
           <p className="data">26.4°C</p>
           <p className="status good">Normal</p>
         </section>
 
-        <section className="card" id="umidade">
+        <section className="card" id="card-umidade">
           <h2>Umidade</h2>
           <p className="data">58%</p>
           <p className="status medium">Moderada</p>
         </section>
 
-        <section className="card" id="qualidade">
+        <section className="card" id="card-qualidade">
           <h2>Qualidade do Ar</h2>
           <p className="data">73 AQI</p>
           <p className="status warning">Atenção para pessoas sensíveis</p>

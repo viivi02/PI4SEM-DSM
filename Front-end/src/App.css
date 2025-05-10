@@ -1,25 +1,27 @@
 /* Cabeçalho */
 
 .header {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #264653;
+  background-color: rgba(60, 60, 60, 0.8);
   color: white;
   padding: 10px 20px;
   box-sizing: border-box;
 }
 
-
 .logo h1 {
   margin: 0;
-  font-size: 24px;
+  color: rgba(6, 193, 28, 0.601);
+  font-size: 45px;
+  font-family: "poppins", sans-serif;
 }
 
 .logo p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  color: rgba(6, 193, 28, 0.601);
 }
 
 .navbar .menu {
@@ -31,7 +33,7 @@
 .navbar .menu > li {
   position: relative;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 25px;
   cursor: pointer;
 }
 
@@ -42,9 +44,12 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  padding: inherit;
   top: 38px;
-  left: 0;
-  background-color: #f1f1f1;
+  list-style: none;
+  border-radius: 16px;
+  left: -1rem;
+  background-color: rgba(60, 60, 60, 0.8);
   min-width: 160px;
   z-index: 1;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -56,12 +61,12 @@
 }
 
 .dropdown-content li a {
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .dropdown-content li:hover {
-  background-color: #ddd;
+  background-color: #919191;
 }
 
 
@@ -70,41 +75,24 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  background-image: url("Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
   color: #222;
-}
-
-.app-container {
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-header h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #2a9d8f;
-}
-
-header p {
-  font-size: 1rem;
-  color: #555;
 }
 
 .grid-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.8);
   margin-top: 2rem;
   padding: 1rem;
   border-radius: 12px;
@@ -152,7 +140,7 @@ header p {
 }
 
 .chart-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -178,9 +166,6 @@ footer {
 
 /* Responsivo para telas pequenas */
 @media (max-width: 600px) {
-  .app-container {
-    padding: 1rem;
-  }
 
   .card {
     margin-top: 2rem;
@@ -198,5 +183,61 @@ footer {
 
   .data {
     font-size: 1.5rem;
+  }
+}
+
+/* Responsivo menu */
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(60, 60, 60, 0.8);
+    padding: 10px 0;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    padding: 10px;
+    list-style: none;
+  }
+
+  .menu li ul.dropdown-content {
+    position: static;
+    display: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .menu li:hover ul.dropdown-content {
+    display: block;
   }
 }
