@@ -3,6 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, Legend
 } from 'recharts';
+import { useNavigate } from 'react-router-dom';
 
 const tempData = [
   { dia: 'Seg', temp: 24 },
@@ -22,11 +23,12 @@ const umidData = [
 ];
 
 function App() {
+  const navigate = useNavigate();
   return (
     <div className="app-container">
       <div className="header">
         <div className="logo">
-          <img width="80" loading="lazy" alt="" src="Airsenseicon.png" class="nav_brand_main-logo-bg"></img>
+          <img width="80" loading="lazy" alt="" src="/imgs/Airsenseicon.png" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}></img>
         </div>
         <nav className="navbar">
           <button className="menu-toggle" onClick={() => {
@@ -38,9 +40,8 @@ function App() {
             <li>
               Dashboard ⮛
               <ul className="dropdown-content">
-                <li><a href="#">Temperatura</a></li>
-                <li><a href="#">Umidade</a></li>
-                <li><a href="#">Qualidade do Ar</a></li>
+                <li><a href="/temperatura">Temperatura</a></li>
+                <li><a href="/umidade-qualidade">Umidade/Qualidade Ar</a></li>
               </ul>
             </li>
             <li>
@@ -92,22 +93,58 @@ function App() {
       </div>
 
       <div className="grid-cards">
-        <section className="card" id="card-temperatura">
-          <h2>Temperatura</h2>
-          <p className="data">26.4°C</p>
-          <p className="status good">Normal</p>
+        <section className="card" id="card-umidade">
+          <div className="card-content-horizontal">
+            <img
+              width="100"
+              loading="lazy"
+              alt=""
+              src="/imgs/Airsenseicon.png"
+              onClick={() => navigate('/')}
+              style={{ cursor: 'pointer' }}
+            />
+            <div className="text-content">
+              <h2>Temperatura</h2>
+              <p className="data">28Cº</p>
+              <p className="status medium">Moderada</p>
+            </div>
+          </div>
         </section>
 
         <section className="card" id="card-umidade">
-          <h2>Umidade</h2>
-          <p className="data">58%</p>
-          <p className="status medium">Moderada</p>
+          <div className="card-content-horizontal">
+            <img
+              width="100"
+              loading="lazy"
+              alt=""
+              src="/imgs/Airsenseicon.png"
+              onClick={() => navigate('/')}
+              style={{ cursor: 'pointer' }}
+            />
+            <div className="text-content">
+              <h2>Umidade</h2>
+              <p className="data">58%</p>
+              <p className="status medium">Moderada</p>
+            </div>
+          </div>
         </section>
 
-        <section className="card" id="card-qualidade">
-          <h2>Qualidade do Ar</h2>
-          <p className="data">73 AQI</p>
-          <p className="status warning">Atenção para pessoas sensíveis</p>
+        <section className="card" id="card-umidade">
+          <div className="card-content-horizontal">
+            <img
+              width="100"
+              loading="lazy"
+              alt=""
+              src="/imgs/Airsenseicon.png"
+              onClick={() => navigate('/')}
+              style={{ cursor: 'pointer' }}
+            />
+            <div className="text-content">
+              <h2>Qualidade do Ar</h2>
+              <p className="data">71</p>
+              <p className="status medium">Preocupante</p>
+            </div>
+          </div>
         </section>
       </div>
 

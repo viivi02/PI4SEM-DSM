@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(60, 60, 60, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -77,7 +77,7 @@ body, html {
   padding: 0;
   display: flex;
   justify-content: center;
-  background-image: url("Background.png");
+  background-image: url("/imgs/Background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -92,7 +92,10 @@ body, html {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 1);
   margin-top: 2rem;
   padding: 1rem;
   border-radius: 12px;
@@ -101,6 +104,18 @@ body, html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   min-width: 200px;
+}
+
+.card-content-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card h2 {
@@ -140,7 +155,7 @@ body, html {
 }
 
 .chart-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -161,7 +176,7 @@ footer {
   margin-top: auto;
   padding-top: 2rem;
   font-size: 0.85rem;
-  color: #555;
+  color: #ffffff;
 }
 
 /* Responsivo para telas pequenas */
