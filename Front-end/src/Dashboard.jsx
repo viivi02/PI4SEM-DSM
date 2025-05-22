@@ -1,9 +1,16 @@
-import './App.css';
+import './assets/App.css';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, Legend
 } from 'recharts';
 import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import ModalAlerta from './Alertas';
+import AirsenseIcon from './assets/imgs/Airsenseicon.png';
+import Tempicon from './assets/imgs/tempicon.png';
+import Umidicon from './assets/imgs/umidicon.png';
+import QualidadeIcon from './assets/imgs/qualidadeicon.png';
+
 
 const tempData = [
   { dia: 'Seg', temp: 24 },
@@ -24,11 +31,49 @@ const umidData = [
 
 function App() {
   const navigate = useNavigate();
+
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [tipoAlerta, setTipoAlerta] = useState('');
+  const [valorAlerta, setValorAlerta] = useState('');
+  const [statusAlerta, setStatusAlerta] = useState('');
+
+    useEffect(() => {
+    // valores simulados (você pode pegar direto de algum state futuramente)
+    const temperatura = 28;
+    const umidade = 58;
+    const qualidade = 71;
+
+    if (temperatura > 27) {
+      setTipoAlerta('Temperatura');
+      setValorAlerta(`${temperatura}°C`);
+      setStatusAlerta('Alta');
+      setMostrarAlerta(true);
+    } else if (umidade < 50) {
+      setTipoAlerta('Umidade');
+      setValorAlerta(`${umidade}%`);
+      setStatusAlerta('Baixa');
+      setMostrarAlerta(true);
+    } else if (qualidade > 70) {
+      setTipoAlerta('Qualidade do Ar');
+      setValorAlerta(qualidade);
+      setStatusAlerta('Preocupante');
+      setMostrarAlerta(true);
+    }
+  }, []);
+
   return (
     <div className="app-container">
+      {mostrarAlerta && (
+        <ModalAlerta
+          tipo={tipoAlerta}
+          valor={valorAlerta}
+          status={statusAlerta}
+          onClose={() => setMostrarAlerta(false)}
+        />
+        )}
       <div className="header">
         <div className="logo">
-          <img width="80" loading="lazy" alt="" src="/imgs/Airsenseicon.png" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}></img>
+          <img width="80" loading="lazy" alt="Logo" src={AirsenseIcon} onClick={() => navigate('/')} style={{ cursor: 'pointer' }}></img>
         </div>
         <nav className="navbar">
           <button className="menu-toggle" onClick={() => {
@@ -99,8 +144,8 @@ function App() {
               width="100"
               loading="lazy"
               alt=""
-              src="/imgs/Airsenseicon.png"
-              onClick={() => navigate('/')}
+              src={Tempicon}
+              onClick={() => navigate('/Temperatura')}
               style={{ cursor: 'pointer' }}
             />
             <div className="text-content">
@@ -117,7 +162,7 @@ function App() {
               width="100"
               loading="lazy"
               alt=""
-              src="/imgs/Airsenseicon.png"
+              src={Umidicon}
               onClick={() => navigate('/')}
               style={{ cursor: 'pointer' }}
             />
@@ -132,10 +177,10 @@ function App() {
         <section className="card" id="card-umidade">
           <div className="card-content-horizontal">
             <img
-              width="100"
+              width="110"
               loading="lazy"
               alt=""
-              src="/imgs/Airsenseicon.png"
+              src={QualidadeIcon}
               onClick={() => navigate('/')}
               style={{ cursor: 'pointer' }}
             />

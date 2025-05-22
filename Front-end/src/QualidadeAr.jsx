@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
+import './assets/App.css';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { useNavigate } from 'react-router-dom';
+import AirsenseIcon from './assets/imgs/Airsenseicon.png';
 
 
 const umidData = [
@@ -17,7 +18,7 @@ export default function UmidadeQualidade() {
     <div className="app-container" style={{ width: '100%', height: '100vh' }}>
         <div className="header">
         <div className="logo">
-          <img width="80" loading="lazy" alt="" src="/imgs/Airsenseicon.png" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}></img>
+          <img width="80" loading="lazy" alt="Logo" src={AirsenseIcon} onClick={() => navigate('/')} style={{ cursor: 'pointer' }}></img>
         </div>
         <nav className="navbar">
           <button className="menu-toggle" onClick={() => {
